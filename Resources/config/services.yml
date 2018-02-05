@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    Intracto\LTIConsumerBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+    Intracto\LTIConsumerBundle\:
+        resource: '../../*'
+        exclude: '../../{Exception,Resources,Utils,Elastic,Services/Mail}'
+    Intracto\LTIConsumerBundle\Services\IMSProvider:
+        arguments:
+            $config: "%LTI.sofia%"
+

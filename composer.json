@@ -1,0 +1,39 @@
+{
+    "name": "intracto/lti-consumer-bundle",
+    "type": "symfony-bundle",
+    "description": "This bundle is a consumer setup for the LTI protocol",
+    "keywords": ["software", "consumer", "LTI"],
+    "homepage": "https://github.com/intracto",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joeri Timmermans",
+            "email": "info@pix-art.be"
+        },
+        {
+            "name": "Mats Vanspringel",
+            "email": "mats.vanspringel@intracto.com"
+        },
+        {
+            "name": "Yves Maerschalck",
+            "email": "yves.maerschalck@intracto.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.6",
+        "symfony/framework-bundle": "~3.4",
+        "symfony/options-resolver": "^3.4",
+        "symfony/form": "^3.4"
+    },
+
+    "config": {
+        "bin-dir": "bin"
+    },
+
+    "autoload": {
+        "psr-0": { "Intracto\\LTIConsumerBundle": "" }
+    },
+
+    "target-dir": "Intracto/LTIConsumerBundle"
+}
