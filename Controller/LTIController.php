@@ -43,6 +43,6 @@ class LTIController extends Controller
         $oauthRequest = $this->IMSProvider->prepareLaunchRequest($parameters);
         $form = $this->IMSProvider->buildForm($oauthRequest);
 
-        return $this->render('IntractoLTIConsumerBundle::index.html.twig', ['form' => $form]);
+        return $this->render('LTIConsumerBundle::index.html.twig', ['form' => $form]);
     }
 }
