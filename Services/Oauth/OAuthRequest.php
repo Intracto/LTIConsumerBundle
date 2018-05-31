@@ -14,6 +14,8 @@ class OAuthRequest
 
     private $url;
 
+    private $baseUrl;
+
     private $key;
 
     private $secret;
@@ -21,17 +23,19 @@ class OAuthRequest
     /**
      * OauthProvider constructor.
      *
-     * @param $parameters
-     * @param $method
-     * @param $url
-     * @param $key
-     * @param $secret
+     * @param        $parameters
+     * @param        $url
+     * @param        $baseUrl
+     * @param        $key
+     * @param        $secret
+     * @param string $method
      */
-    public function __construct($parameters, $url, $key, $secret, $method = 'POST')
+    public function __construct($parameters, $url, $baseUrl = null, $key, $secret, $method = 'POST')
     {
         $this->parameters = $parameters;
         $this->method = $method;
         $this->url = $url;
+        $this->baseUrl = ($baseUrl) ? $baseUrl : $url;
         $this->key = $key;
         $this->secret = $secret;
     }
@@ -83,9 +87,7 @@ class OAuthRequest
 
     public function getNormalizedUrl()
     {
-        $endpoint_stripped = str_replace('www.', '', $this->url);
-        $parts = parse_url($endpoint_stripped);
-
+        $parts = parse_url($this->baseUrl);
         $port = @$parts['port'];
         $scheme = $parts['scheme'];
         $host = $parts['host'];
