@@ -36,7 +36,6 @@ class LTIController extends Controller
         $optionsResolver->setDefined(array_keys($parameters));
         $optionsResolver->setRequired(array(
             'lis_person_contact_email_primary',
-            'custom_courseid',
         ));
         $optionsResolver->resolve($parameters);
 
