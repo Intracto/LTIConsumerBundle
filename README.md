@@ -73,7 +73,7 @@ public function openElearningAction($elearningId)
                 'intracto_lti_consumer_launch',
                 [
                     'email' => $this->getUser()->getUsername(),
-                    'aCustomParameter' => $elearningId,  // This will be sent with the LTI connection as 'ltiFieldName' because of intracto_lti.custom_parameters
+                    'aCustomParameterName' => $elearningId,  // $elearningId will be sent with the LTI connection as 'ltiFieldName' because of intracto_lti.custom_parameters
                 ]
             )
         ]
