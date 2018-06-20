@@ -11,5 +11,5 @@ services:
         exclude: '../../{Exception,Resources,Utils,Elastic,Services/Mail}'
     Intracto\LTIConsumerBundle\Services\IMSProvider:
         arguments:
-            $config: "%LTI.sofia%"
+            $config: "%intracto_lti.provider%"
 
