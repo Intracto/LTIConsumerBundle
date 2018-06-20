@@ -24,14 +24,13 @@ class LTIController extends Controller
 
     public function launchAction(Request $request)
     {
-        $customParameters = $this->getParameter('intracto_lti.custom_parameters');
-
         $person = LISPerson::createFromRequest($request);
-        $parameters = $person->getAsParameters();
-        $parameters = array_filter(array_merge($parameters, array(
-            'custom_courseid' => $request->get('courseId'),
-            'lti_message_type' => 'basic-lti-launch-request',
-        )));
+
+        $parameters = array_filter(array_merge(
+            $person->getAsParameters(),
+            $this->extractCustomParameters($request),
+            array('lti_message_type' => 'basic-lti-launch-request')
+        ));
 
         $optionsResolver = new OptionsResolver();
         // Allow additional parameters
@@ -45,5 +44,26 @@ class LTIController extends Controller
         $form = $this->IMSProvider->buildForm($oauthRequest);
 
         return $this->render('LTIConsumerBundle::index.html.twig', ['form' => $form]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    public function extractCustomParameters(Request $request)
+    {
+        try {
+            $customParameterMapping = $this->getParameter('intracto_lti.custom_parameters');
+        } catch (\InvalidArgumentException $e) {
+            return [];  // Optional parameter
+        }
+
+        $customParameters = array();
+        foreach ($customParameterMapping as $requestParam => $ltiParam) {
+            $customParameters[$ltiParam] = $request->get($requestParam);
+        }
+
+        return $customParameters;
     }
 }
