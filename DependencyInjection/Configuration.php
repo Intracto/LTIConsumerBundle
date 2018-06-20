@@ -24,7 +24,6 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('custom_parameters')
                     ->canBeUnset()
-                    ->defaultValue([])
                 ->end()
                 ->arrayNode('lti_provider')
                     ->cannotBeEmpty()
