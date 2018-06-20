@@ -5,13 +5,13 @@ namespace Intracto\LTIConsumerBundle\Services;
 use Intracto\LTIConsumerBundle\Services\Oauth\OAuthRequest;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\FormFactory;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class IMSProvider
 {
     /**
-     * @var FormFactory
+     * @var FormFactoryInterface
      */
     private $formBuilder;
 
@@ -28,10 +28,10 @@ class IMSProvider
     /**
      * IMSProvider constructor.
      *
-     * @param FormFactory $formBuilder
+     * @param FormFactoryInterface $formBuilder
      * @param $config
      */
-    public function __construct(FormFactory $formBuilder, $config)
+    public function __construct(FormFactoryInterface $formBuilder, $config)
     {
         $this->formBuilder = $formBuilder;
 
