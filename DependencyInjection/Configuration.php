@@ -18,16 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('intracto_lti');
-
-        $rootNode
-            ->children()
-                ->arrayNode('custom_parameters')
-                    ->canBeUnset()
-                ->end()
-                ->arrayNode('lti_provider')
-                    ->cannotBeEmpty()
-                    ->end();
+        $treeBuilder->root('intracto_lti');
 
         return $treeBuilder;
     }

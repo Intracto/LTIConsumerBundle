@@ -24,6 +24,8 @@ class LTIController extends Controller
 
     public function launchAction(Request $request)
     {
+        $customParameters = $this->getParameter('intracto_lti.custom_parameters');
+
         $person = LISPerson::createFromRequest($request);
         $parameters = $person->getAsParameters();
         $parameters = array_filter(array_merge($parameters, array(
