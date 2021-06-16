@@ -22,9 +22,9 @@
 
     "require": {
         "php": ">=7.1.3",
-        "symfony/framework-bundle": "4.4.*",
-        "symfony/options-resolver": "4.4.*",
-        "symfony/form": "4.4.*"
+        "symfony/framework-bundle": "~4.4",
+        "symfony/options-resolver": "^4.4",
+        "symfony/form": "^4.4"
     },
 
     "config": {
