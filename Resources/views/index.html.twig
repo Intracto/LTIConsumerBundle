@@ -1,8 +1,16 @@
 {{ form(form,{'attr': {'id': 'lti_form'}}) }}
 <p>{{ 'lti.launch.message'|trans }}</p>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<button type="submit" form="lti_form">{{ 'lti.launch.submit_now' }}</button>
 <script>
-    $(function() {
-        $('#lti_form').submit();
-    });
+    function submitForm() {
+        document.getElementById('lti_form').submit();
+    }
+
+    if (document.readyState !== 'loading') {
+        // Document is already ready, call the callback directly
+        submitForm();
+    } else if (document.addEventListener) {
+        // All modern browsers to register DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', submitForm);
+    }
 </script>
