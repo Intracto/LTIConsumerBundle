@@ -4,11 +4,11 @@ namespace Intracto\LTIConsumerBundle\Controller;
 
 use Intracto\LTIConsumerBundle\Model\LISPerson;
 use Intracto\LTIConsumerBundle\Services\IMSProvider;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LTIController extends Controller
+class LTIController extends AbstractController
 {
     private $IMSProvider;
 
