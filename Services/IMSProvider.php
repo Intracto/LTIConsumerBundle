@@ -54,7 +54,7 @@ class IMSProvider
 
     public function buildForm(OAuthRequest $OAuthRequest)
     {
-        $form = $this->formBuilder->createNamedBuilder(null, FormType::class, null, array('csrf_protection' => false));
+        $form = $this->formBuilder->createNamedBuilder('', FormType::class, null, array('csrf_protection' => false));
 
         foreach ($OAuthRequest->getParameters() as $key => $value) {
             $form->add($key, HiddenType::class, [
