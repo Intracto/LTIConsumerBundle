@@ -30,7 +30,7 @@ class OAuthRequest
      * @param        $secret
      * @param string $method
      */
-    public function __construct($parameters, $url, $baseUrl = null, $key, $secret, $method = 'POST')
+    public function __construct($parameters, $url, $key, $secret, $baseUrl = null, $method = 'POST')
     {
         $this->parameters = $parameters;
         $this->method = $method;

@@ -46,7 +46,7 @@ class IMSProvider
     {
         $parameters = array_merge($this->parameters, $extraParameters);
 
-        $oauthRequest = new OauthRequest($parameters, $this->config['url'], $this->config['base_url'], $this->config['key'], $this->config['secret']);
+        $oauthRequest = new OauthRequest($parameters, $this->config['url'], $this->config['key'], $this->config['secret'], $this->config['base_url']);
         $oauthRequest->signRequest();
 
         return $oauthRequest;
